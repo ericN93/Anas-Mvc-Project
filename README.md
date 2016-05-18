@@ -9,13 +9,15 @@ Clone Anax-MVC-Project
 
 Go to app/config/config_mysql.php and change to your own local/server settings.
 
-You also have to install "require": {
+You also have to install
     "php": ">=5.4",
     "mos/ctextfilter": "1.2.2",
     "mos/cform": "2.*@dev",
     "phpmvc/comment": "dev-master",
     "mos/cdatabase": "dev-master"
-},
+
+so update it with your composer ("composer update" in the root)
+
 
 Point your browser to /webroot/index.php/question/setup and then the tabel for questions will be setup for you
 
