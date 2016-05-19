@@ -17,12 +17,4 @@
   <p><b>Skapad:</b> <?=$user['created']?></p>
 </div>
 
-<div>
-  <p><?=isset($user['updated']) ? 'Användaren är uppdaterad den ' . $user['updated'] : null?>
-<!--  <p><?=isset($user['deleted']) ? 'Användaren är raderad den ' . $user['deleted'] : null?> -->
-  <p>Användaren är <?=isset($user['active']) ? 'aktiv' : 'inaktiv'?>
-  <?=isset($user['deleted']) ? 'och i papperskorgen' : ''?></p>
-</div>
-
-
 <?php endforeach; ?>
