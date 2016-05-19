@@ -25,33 +25,4 @@
 </div>
 
 
-<?php
-
-  $output = null;
-
-  $output .= "<a href=" . $this->url->create('users/delete/' . $user['id']) . ">Ta bort</a> | ";
-  $output .= "<a href=" . $this->url->create('users/update/' . $user['id']) . ">Uppdatera</a> | ";
-
-  if(isset($user['deleted']))
-  {
-    $output .= "<a href=" . $this->url->create('users/undoSoftDelete/' . $user['id']) . ">Ta bort från papperskorgen</a> | ";
-  }
-  else
-  {
-  $output .= "<a href=" . $this->url->create('users/softDelete/' . $user['id']) . ">Lägg användaren i papperskorgen</a> | ";
-}
-if(isset($user['active']))
-{
-
-  $output .= "<a href=" . $this->url->create('users/deactivate/' . $user['id']) . ">Sätt till inaktiv</a> | ";
-}
-else
-{
-$output .= "<a href=" . $this->url->create('users/undodeactivate/' . $user['id']) . ">Sätt till aktiv</a> | ";
-}
-?>
-
-<?=$output?>
-<hr>
-
 <?php endforeach; ?>

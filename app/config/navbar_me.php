@@ -62,6 +62,12 @@ return [
 
         ],
 
+        'list'  => [
+            'text'  => 'Användare',
+            'url'   => $this->di->get('url')->create('users/list'),
+            'title' => 'third route of current frontcontroller'
+        ],
+
 
         'login'=>  [
             'text'  => $text,
