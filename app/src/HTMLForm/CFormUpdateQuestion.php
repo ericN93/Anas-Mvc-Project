@@ -73,6 +73,11 @@ class CFormUpdateQuestion extends \Mos\HTMLForm\CForm
             $question = new \Anax\Question\Question();
             $question->setDI($this->di);
 
+            $tags = new \Anax\Tag\Tag();
+            $tags->setDI($this->di);
+
+            $theQuestion=$question->find($this->Value('id'));
+
             $now = gmdate('Y-m-d H:i:s');
 
             $nrOfSameTags = false;
@@ -86,6 +91,14 @@ class CFormUpdateQuestion extends \Mos\HTMLForm\CForm
                 }
                 if($nrOfSameTags == false)
                 {
+
+                    $this->di->dispatcher->forward([
+                    'controller' => 'tag',
+                    'action'     => 'delete-tags',
+                    'params'     => [$theQuestion],
+                    ]);
+
+
                     $saved = $question->save([
                         'id'           =>$this->Value('id'),
                         'header'       =>$this->Value('header'),
@@ -101,12 +114,12 @@ class CFormUpdateQuestion extends \Mos\HTMLForm\CForm
                     ]);
 
                 } else {
-                    //$this->redirectTo('question/list');
+                    $this->redirectTo('question/list');
                 }
 
 
 
-           //return $saved ? true : false;
+           return $saved ? true : false;
         }
 
         public function callbackSubmitRemove()
